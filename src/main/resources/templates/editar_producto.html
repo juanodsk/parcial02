@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="https://wwww.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Parqueadero la toma</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Control de parqueadero</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/nuevo">Agregar Producto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br />
+
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card"
+        >
+          <h1 class="text-center">Edidar registro de carros</h1>
+          <div class="card-body">
+            <form th:action="@{/guardar}" th:object="${producto}" method="post">
+              <div class="form-group">
+                <label>Producto ID:</label>
+                <input
+                  type="text"
+                  name="nombre"
+                  th:field="*{id}"
+                  class="form-control"
+                  readonly="readonly"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Placa:</label>
+                <input
+                  type="text"
+                  name="placa"
+                  th:field="*{placa}"
+                  class="form-control"
+                  placeholder="Digite la placa del vehiculo"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Hora:</label>
+                <input
+                  type="number"
+                  name="entradaHora"
+                  th:field="*{entradaHora}"
+                  class="form-control"
+                  placeholder="Digite la hora de entrada"
+                  required
+                />
+                <input
+                  type="number"
+                  name="entradaMin"
+                  th:field="*{entradaMin}"
+                  class="form-control"
+                  placeholder="Digite el minuto de entrada"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Salida:</label>
+                <input
+                  type="number"
+                  name="salidaHora"
+                  th:field="*{salidaHora}"
+                  class="form-control"
+                  placeholder="Digite la hora de salida"
+                  required
+                />
+                <input
+                  type="number"
+                  name="salidaMin"
+                  th:field="*{salidaMin}"
+                  class="form-control"
+                  placeholder="Digite el minuto de salida"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Tipo:</label>
+                <input
+                  type="text"
+                  name="tipoVehiculo"
+                  th:field="*{tipoVehiculo}"
+                  class="form-control"
+                  placeholder="Digite el tipo de vehiculo"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Ubicacion:</label>
+                <input
+                  type="text"
+                  name="ubicacion"
+                  th:field="*{ubicacion}"
+                  class="form-control"
+                  placeholder="Digite la ubicacion del vehiculo"
+                  required
+                />
+              </div>
+              <div class="box-footer">
+                <button class="btn btn-success">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
